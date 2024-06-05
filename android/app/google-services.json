@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "105719925703",
+    "project_id": "socialmediaapp-6785d",
+    "storage_bucket": "socialmediaapp-6785d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105719925703:android:d674001e85aab25e9967e2",
+        "android_client_info": {
+          "package_name": "com.mtri.social_network"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHP0qKd4ulcEk1lWuqAFsVc5AVexMjO7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
