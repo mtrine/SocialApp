@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../screens/homeScreen.dart';
 import '../../services/authService.dart';
+import '../../utils/validation.dart';
 
 class LoginViewModel extends ChangeNotifier{
     final GlobalKey<ScaffoldState> scaffoldkey= GlobalKey<ScaffoldState>();
@@ -45,6 +46,43 @@ class LoginViewModel extends ChangeNotifier{
             loading = false;
             notifyListeners();
         }
+    }
+
+    forgotPassword(BuildContext context) async{
+        loading= true;
+        notifyListeners();
+        FormState form= formKey.currentState!;
+        form.save();
+        print(Validations.validateEmail(email));
+        if(Validations.validateEmail(email)!=null){
+            showInSnackBar(
+                'Hãy nhập email hợp lệ để tạo lại mật khẩu mới',
+                context
+            );
+        }
+        else{
+            try{
+            await auth.forgotPassword(email!);
+            showInSnackBar(
+                'Hãy nhập email hợp lệ để tạo lại mật khẩu mới',
+                context
+            );
+            }catch(e){
+                showInSnackBar("$e", context);
+            }
+        }
+        loading=true;
+        notifyListeners();
+    }
+
+    setEmail(val) {
+        email = val;
+        notifyListeners();
+    }
+
+    setPassword(val) {
+        password = val;
+        notifyListeners();
     }
 
     void showInSnackBar(String value,context) {
